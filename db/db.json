@@ -1,6 +1,20 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
-]
+{
+    "notes": [
+        {
+            "title": "Example notes",
+            "text": "Here is some text for the notes"
+        },
+        {
+            "title": "2",
+            "text": "Here is some text for the notes"
+        },
+        {
+            "title": "3",
+            "text": "Here is some text for the notes"
+        },
+        {
+            "title": "4",
+            "text": "Here is some text for the notes"
+        }
+    ]
+}
