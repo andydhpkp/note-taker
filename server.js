@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }))
 //parse incoming JSON data
 app.use(express.json())
 
+app.use(express.static('public'))
+
 const { notes } = require('./db/db.json')
 
 function filterByQuery(query, notesArray) {
@@ -75,6 +77,18 @@ app.post('/api/notes', (req, res) => {
         const note = createNewNote(req.body, notes)
         res.json(req.body)
     }
+})
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'))
+})
+
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'))
+})
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'))
 })
 
 app.listen(PORT, () => {
