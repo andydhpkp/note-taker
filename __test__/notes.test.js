@@ -1,5 +1,5 @@
 const fs = require('fs')
-const { filterByQuery, findById, createNewNote, validateNote, deleteNote } = require('../lib/notes')
+const { filterByQuery, findById, createNewNote, validateNote } = require('../lib/notes')
 const { notes } = require('../db/db.json')
 
 jest.mock('fs')
@@ -68,31 +68,3 @@ test('validates note', () => {
     expect(validResult).toBe(true)
     expect(invalidResult).toBe(false)
 })  
-
-test('deletes note', () => {
-    const startingNotes = [
-        {
-            id: "0",
-            title: "Example notes",
-            text: "Here is some text for the notes"
-        },
-        {
-            id: "1",
-            title: "Second",
-            text: "Here is some text for the notes"
-        },
-        {
-            id: "2",
-            title: "Third",
-            text: "Some more text for examples"
-        },
-        {
-            id: "3",
-            title: "Fourth",
-            text: "The final amount of text"
-        }
-    ];
-    deleteNote('2', startingNotes)
-    expect(startingNotes.length).toBe(3)
-
-})
